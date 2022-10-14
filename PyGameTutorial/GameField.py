@@ -4,7 +4,7 @@ import pygame
 class FieldBlock(object):
     def __init__(self,x,y,size):
         self.R = pygame. Rect(x,y,size,size)
-        self.sprite=None
+        self.sprite= None
 
 class GameField(object):
     def __init__(self,sx,sy):
@@ -22,7 +22,7 @@ class GameField(object):
         for r in self.F:
             line=str(i)+":"
             for x in r:
-                if(x.sprite is not None):
+                if(x.sprite is not  None):
                     line += "X,"
                     #str(x.sprite.frames[0].x)+
                 else:
@@ -33,7 +33,7 @@ class GameField(object):
     def ClearLine(self,rowI):
             row = self.F[rowI]
             for x in range(0,len(row)):
-                row[x].sprite=None
+                row[x].sprite= None
 
     def ClearLines(self,lineDown):
         self.printField()
@@ -48,7 +48,7 @@ class GameField(object):
             y =  self.sy + (r*self.blocksize)
             for x in range(0,len(self.F[r])):
                 self.F[r][x].sprite = self.F[r-1][x].sprite
-                if self.F[r][x].sprite is not None:
+                if self.F[r][x].sprite is not  None:
                     self.F[r][x].sprite.R.y = y
         
         self.ClearLine(0)
@@ -69,7 +69,7 @@ class GameField(object):
             count=0
             row = self.F[int(rowI/16)]
             for fb in row:
-                if fb.sprite is not None:
+                if fb.sprite is not  None:
                     count+=1
             if count == len(row):
                 print("linecomplete")
@@ -82,7 +82,7 @@ class GameField(object):
         for s in block.sprites:
             for row in self.F:
                 for fb in row:
-                    if fb.sprite is not None and fb.R.x == s.R.x and fb.R.y == s.R.y:
+                    if fb.sprite is not  None and fb.R.x == s.R.x and fb.R.y == s.R.y:
                         return True
         return False
     
